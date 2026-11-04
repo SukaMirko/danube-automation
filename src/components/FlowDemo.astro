@@ -1,38 +1,37 @@
 ---
-// Hero visual: a WhatsApp order turning into a draft Odoo sales order.
+// Hero visual: a WhatsApp order and the draft Odoo sales order the agent created from it.
+// Illustrative example data.
 ---
-<div class="flow" aria-label="Example: a WhatsApp message becomes a draft sales order in Odoo">
-  <div class="flow-card msg">
-    <p class="flow-label"><span class="dot dot-wa"></span>WhatsApp · Kessler Tiles · 07:42</p>
-    <p class="bubble">Morning! Same as last time but 40 boxes of the 2mm clips, 15 wedge packs. Can it go out Thursday?</p>
+<div class="odoo-demo" aria-label="Example: a WhatsApp message turned into a draft sales order in Odoo">
+  <div class="wa-bubble">
+    <p class="who">WhatsApp · Kessler Tiles</p>
+    <p class="txt">Morning! Same as last time but 40 boxes of the 2mm clips, 15 wedge packs. Can it go out Thursday?</p>
   </div>
 
-  <svg class="flow-river" viewBox="0 0 60 120" aria-hidden="true">
-    <path d="M30 0 C 6 30, 54 50, 30 80 S 30 110, 30 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 7" />
-  </svg>
-
-  <div class="flow-card agent">
-    <p class="flow-label"><span class="dot dot-ai"></span>Agent</p>
-    <ul class="checks">
-      <li>Customer matched: <b>Kessler Tiles GmbH</b></li>
-      <li>“Last time” = order S00412, 3 lines</li>
-      <li>Delivery date: Thursday, 6 Nov</li>
-    </ul>
-  </div>
-
-  <svg class="flow-river" viewBox="0 0 60 120" aria-hidden="true">
-    <path d="M30 0 C 54 30, 6 50, 30 80 S 30 110, 30 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 7" />
-  </svg>
-
-  <div class="flow-card order">
-    <p class="flow-label"><span class="dot dot-odoo"></span>Odoo · Sales order S00438</p>
-    <table>
-      <tbody>
-        <tr><td>Leveling clips 2 mm</td><td>40 box</td></tr>
-        <tr><td>Wedges, pack of 100</td><td>15 pk</td></tr>
-        <tr><td>Leveling pliers</td><td>1 pc</td></tr>
-      </tbody>
-    </table>
-    <p class="order-foot"><span class="pill">Draft</span> Waiting for your approval</p>
+  <div class="o-window">
+    <div class="o-nav"><i class="grid"></i><b>Sales</b><span>Orders</span><span>To Invoice</span><span>Products</span></div>
+    <div class="o-control">
+      <div class="o-crumb">Quotations / <b>S00438</b></div>
+      <div class="o-status"><span class="on">Quotation</span><span>Sent</span><span>Sales Order</span></div>
+    </div>
+    <div class="o-sheet">
+      <div class="o-btns" style="margin-bottom:.8rem"><span class="o-btn primary">Confirm</span><span class="o-btn">Send by Email</span><span class="o-btn">Preview</span></div>
+      <div class="o-fields">
+        <div><label>Customer</label><span>Kessler Tiles GmbH</span></div>
+        <div><label>Delivery date</label><span>Thu, 6 Nov</span></div>
+        <div><label>Price list</label><span>Wholesale EUR</span></div>
+        <div><label>Based on</label><span>S00412</span></div>
+      </div>
+      <table class="o-lines">
+        <thead><tr><th>Product</th><th class="n">Qty</th><th class="n hide-sm">Unit price</th><th class="n">Subtotal</th></tr></thead>
+        <tbody>
+          <tr><td>Leveling clips 2 mm (box)</td><td class="n">40</td><td class="n hide-sm">18.50</td><td class="n">740.00</td></tr>
+          <tr><td>Wedges, pack of 100</td><td class="n">15</td><td class="n hide-sm">9.20</td><td class="n">138.00</td></tr>
+          <tr><td>Leveling pliers</td><td class="n">1</td><td class="n hide-sm">24.00</td><td class="n">24.00</td></tr>
+        </tbody>
+      </table>
+      <p class="o-total">Total <b>€ 902.00</b></p>
+    </div>
+    <div class="o-chatter"><span class="ai">AI agent</span> Draft created from WhatsApp message. Customer and 3 products matched.</div>
   </div>
 </div>

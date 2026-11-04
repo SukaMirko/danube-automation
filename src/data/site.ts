@@ -7,10 +7,7 @@ export const site = {
   whatsapp: "https://wa.me/381607452220",
   linkedin: "https://www.linkedin.com/in/sukamirko",
   person: "Mirko Šuka",
-  legal: "ATAR Agtek d.o.o.",
-  address: "Avrama Mrazovića 1, 21000 Novi Sad, Serbia",
-  vat: "112262193",
-  regNo: "21637742",
+  city: "Novi Sad, Serbia",
 };
 
 export const nav = [
@@ -32,15 +29,8 @@ export const orgJsonLd = {
   telephone: site.phone,
   description:
     "Odoo Community implementation, integrations, custom module development and AI agents for small and mid-sized companies.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Avrama Mrazovića 1",
-    addressLocality: "Novi Sad",
-    postalCode: "21000",
-    addressCountry: "RS",
-  },
+  address: { "@type": "PostalAddress", addressLocality: "Novi Sad", addressCountry: "RS" },
   areaServed: ["Europe", "United States", "United Kingdom"],
   knowsAbout: ["Odoo", "Odoo Community", "ERP implementation", "Odoo module development", "AI agents", "System integration"],
-  parentOrganization: { "@type": "Organization", name: site.legal },
   founder: { "@type": "Person", name: site.person, sameAs: site.linkedin },
 };

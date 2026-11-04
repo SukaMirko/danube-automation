@@ -66,7 +66,7 @@ function leadText(lead: Lead) {
 
 function page(title: string, body: string, status = 200) {
   const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(title)}</title>
-<style>body{margin:0;background:#F6F4EE;color:#2B3A42;font:1.1rem/1.5 system-ui,sans-serif}main{max-width:40rem;margin:auto;padding:2.5rem 1.2rem}a{color:#0E4A5A}h1{font-family:Georgia,serif;color:#242424;font-size:2.2rem;letter-spacing:-.03em}</style>
+<style>body{margin:0;background:#FFFFFF;color:#374151;font:1.1rem/1.5 system-ui,sans-serif}main{max-width:40rem;margin:auto;padding:2.5rem 1.2rem}a{color:#714B67}h1{font-family:Georgia,serif;color:#242424;font-size:2.2rem;letter-spacing:-.03em}</style>
 <main><p>Danube Automation</p><h1>${escapeHtml(title)}</h1>${body}<p><a href="/contact">Back to contact</a></p></main></html>`;
   return new Response(html, {
     status,

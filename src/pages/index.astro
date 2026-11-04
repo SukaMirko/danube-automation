@@ -12,7 +12,7 @@ const faq = [
   { q: "Where will our Odoo run?", a: "On a cloud server in your name (Hetzner, AWS, DigitalOcean or similar) or on your own hardware. We set up backups, a staging copy for testing and monitoring. Odoo.sh, Odoo's own hosting, is available only with Enterprise." },
   { q: "Who owns the code you write?", a: "You do. Custom modules are delivered under LGPL-3 in your own Git repository with documentation, so any Odoo developer can take over." },
   { q: "We're in the US. How does the time difference work?", a: "We work 8:00–17:00 Central European Time, which overlaps with the US East Coast morning. Calls can be scheduled in your morning; most work happens while you sleep and is ready to test when you start." },
-  { q: "How do contracts and invoices work?", a: "You sign with ATAR Agtek d.o.o., a registered company in Novi Sad, Serbia, and we invoice in EUR or USD. NDAs are standard." },
+  { q: "How do contracts and invoices work?", a: "We sign a standard service agreement, and an NDA if you need one, before work starts. Invoices are in EUR or USD, per phase or per month for support." },
   { q: "Is our data sent to AI providers?", a: "Only when you approve it, and only the data a task needs. Agents can use Anthropic Claude, Google Gemini or a model running on your own server." },
 ];
 
@@ -47,7 +47,7 @@ const modules = [
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="kicker">Odoo Community · Integrations · AI agents</p>
-        <h1>Odoo without per-user license fees, and with the parts Community is missing.</h1>
+        <h1>Odoo <span class="hl">without per&#8209;user license fees</span>, and with the parts Community is missing.</h1>
         <p class="lead">We implement Odoo Community, connect it to your webshop, couriers, bank and machines, write the modules your process needs, and add AI agents that turn WhatsApp messages and emails into draft orders.</p>
         <div class="hero-actions">
           <a class="btn" href="/contact">Book a 30-minute scoping call</a>
@@ -171,7 +171,7 @@ const modules = [
     </div>
     <div class="about-card">
       <p class="kicker">Who you'll work with</p>
-      <p><b>{site.person}</b> leads every project personally. Danube Automation is the international brand of {site.legal}, an engineering company in Novi Sad, Serbia, that builds ERP systems, integrations and AI hardware.</p>
+      <p><b>{site.person}</b> leads every project personally. Danube Automation is a small engineering team in Novi Sad, Serbia, that builds ERP systems, integrations and AI hardware.</p>
       <p><a href={site.linkedin} rel="noopener">Mirko on LinkedIn →</a></p>
     </div>
   </section>
