@@ -1,0 +1,22 @@
+# Danube Automation
+
+> Odoo Community implementation, integrations, custom Odoo module development and AI agents for small and mid-sized companies. Team based in Novi Sad, Serbia (Central European Time), working with clients in Europe and the United States. Independent; not affiliated with Odoo S.A.
+
+## Services
+- [Odoo Community implementation](https://danubeautomation.com/services/odoo-community-implementation): phased, fixed-price setup of sales, inventory, purchasing, manufacturing and invoicing, with data migration and training.
+- [Odoo integrations](https://danubeautomation.com/services/odoo-integrations): Shopify, couriers, banks, e-invoicing, label printers, scales and REST/SOAP APIs.
+- [Custom Odoo modules](https://danubeautomation.com/services/custom-odoo-modules): shop-floor kiosks, labels, B2B portals, dashboards, Community replacements for Enterprise-only features. Delivered under LGPL-3 in the client's Git repository.
+- [AI agents for Odoo](https://danubeautomation.com/services/ai-agents-for-odoo): agents that turn WhatsApp messages, emails and voice notes into draft sales orders for human approval; MCP agents over Odoo data.
+- [White-label development for Odoo partners](https://danubeautomation.com/for-odoo-partners)
+
+## Products
+- [MCP Devices](https://mcpdevices.com): local agent that connects printers, scanners and scales to Odoo and AI agents over MCP and REST.
+
+## Guides
+- [Odoo Community vs Enterprise](https://danubeautomation.com/guides/odoo-community-vs-enterprise)
+- [Label printers and scales in Odoo Community without an IoT Box](https://danubeautomation.com/guides/connect-label-printer-scale-odoo-community)
+- [WhatsApp orders to Odoo sales orders with an AI agent](https://danubeautomation.com/guides/whatsapp-orders-to-odoo-sales-orders)
+
+## Contact
+- Email: mirko@danubeautomation.com
+- Book a call: https://danubeautomation.com/contact

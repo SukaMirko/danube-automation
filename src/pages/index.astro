@@ -5,6 +5,7 @@ import ContactForm from "../components/ContactForm.astro";
 import Faq from "../components/Faq.astro";
 import { services } from "../data/services";
 import { site } from "../data/site";
+import { guides } from "../data/guides";
 
 const faq = [
   { q: "What does an Odoo implementation cost?", a: "After a free 30-minute call we send a written scope and a fixed price for the first phase. We keep that phase small: one process, working on your data, in a few weeks. You decide on phase two once phase one is live." },
@@ -125,7 +126,7 @@ const modules = [
           <li><span>Full accounting reports</span><span>OCA financial reports</span></li>
           <li><span>Barcode app</span><span>Kiosk and scanner modules</span></li>
           <li><span>Studio</span><span>Custom modules in Git</span></li>
-          <li><span>IoT Box</span><span>Direct printer and scale connections</span></li>
+          <li><span>IoT Box</span><span><a href="https://mcpdevices.com" rel="noopener">MCP Devices</a>, our device connector</span></li>
           <li><span>Odoo.sh hosting</span><span>Your own server, with backups</span></li>
         </ul>
       </div>
@@ -145,6 +146,32 @@ const modules = [
       ))}
     </ul>
     <a class="link-arrow" href="/services/custom-odoo-modules">Custom module development →</a>
+  </section>
+
+  <section class="wrap section">
+    <div class="devices">
+      <div>
+        <p class="kicker">Our hardware product</p>
+        <h2>MCP Devices: printers, scanners and scales for Odoo and AI agents</h2>
+        <p>Odoo Enterprise talks to hardware through the IoT Box. For Community we built our own connector. MCP Devices is a small agent that runs on a Windows PC, a Raspberry Pi or a Linux box in your warehouse. It finds the label printers, scanners and scales on site and makes them available to Odoo and to AI agents over MCP and a REST API.</p>
+        <ul class="ticks">
+          <li>Print a shipping label from the sales order, on the printer next to the packing table</li>
+          <li>Read the weight from the scale straight into the delivery</li>
+          <li>Permissions per device and an audit log of every print and reading</li>
+        </ul>
+        <a class="btn btn-ghost" href="https://mcpdevices.com" rel="noopener">Visit mcpdevices.com</a>
+      </div>
+      <div class="devices-card" aria-hidden="true">
+        <p class="dc-title">MCP Devices · Warehouse A</p>
+        <ul>
+          <li><span class="dc-dot on"></span>Zebra ZD421 label printer<em>ready</em></li>
+          <li><span class="dc-dot on"></span>Shipping scale, USB<em>2.40 kg</em></li>
+          <li><span class="dc-dot on"></span>Barcode scanner<em>ready</em></li>
+          <li><span class="dc-dot"></span>Receipt printer<em>offline</em></li>
+        </ul>
+        <p class="dc-foot">Connected to Odoo · 4 devices</p>
+      </div>
+    </div>
   </section>
 
   <section class="band band-dark">
@@ -173,6 +200,15 @@ const modules = [
       <p class="kicker">Who you'll work with</p>
       <p><b>{site.person}</b> leads every project personally. Danube Automation is a small engineering team in Novi Sad, Serbia, that builds ERP systems, integrations and AI hardware.</p>
       <p><a href={site.linkedin} rel="noopener">Mirko on LinkedIn →</a></p>
+    </div>
+  </section>
+
+  <section class="wrap section" id="guides">
+    <div class="section-head"><p class="kicker">Guides</p><h2>Notes from our Odoo projects</h2></div>
+    <div class="service-grid service-grid-3">
+      {guides.map((g) => (
+        <a class="service-card" href={`/guides/${g.slug}`}><h3>{g.title}</h3><p>{g.description}</p><span class="more">Read the guide →</span></a>
+      ))}
     </div>
   </section>
 

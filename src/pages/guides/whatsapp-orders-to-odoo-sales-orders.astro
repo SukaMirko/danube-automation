@@ -1,0 +1,34 @@
+---
+import Article from "../../layouts/Article.astro";
+import { guides } from "../../data/guides";
+const g = guides[2];
+---
+<Article title={g.title} metaTitle="WhatsApp Orders to Odoo Sales Orders with an AI Agent" description={g.description} slug={g.slug} date="2026-11-04">
+  <p>In many wholesale businesses, orders don't come through the webshop. They come as WhatsApp messages, emails, photos of a handwritten list and voice notes from sales reps. Someone in the office reads each one, finds the customer in Odoo, looks up product codes and types the order. This guide explains how an AI agent can take over the reading and lookup while a person keeps the final decision.</p>
+
+  <h2>The flow</h2>
+  <ol>
+    <li><b>The message arrives.</b> WhatsApp messages come in through the WhatsApp Business Platform (a webhook), emails through a mailbox the agent reads, voice notes are transcribed first.</li>
+    <li><b>The agent identifies the customer.</b> Usually by phone number or sender address, matched against contacts in Odoo. If there is no match, the draft is flagged instead of guessed.</li>
+    <li><b>The agent matches products.</b> Customers write "the 2mm clips" or "same as last time", not product codes. The agent searches your products, the customer's previous orders and a list of known nicknames, and picks the most likely line items.</li>
+    <li><b>A draft sales order is created.</b> Through Odoo's API, in the Quotation state, with the right price list and the original message attached.</li>
+    <li><b>A person confirms.</b> The draft shows the message next to the order lines, with anything uncertain highlighted. One click confirms, or the person fixes a line first.</li>
+  </ol>
+
+  <h2>Why the draft step matters</h2>
+  <p>A model that reads "40 boxes" correctly 98 times in 100 still gets two orders wrong, and a wrong order costs more than the time saved on typing. Keeping orders as drafts makes the agent safe from the first day. Later, you can let it confirm automatically for specific customers or below a certain amount.</p>
+
+  <h2>What makes matching work</h2>
+  <ul>
+    <li><b>Order history.</b> "Same as last time" is only solvable if the agent can read the customer's previous orders.</li>
+    <li><b>Nicknames.</b> Every company has its own names for products. Each correction a person makes in a draft can be stored, so the agent learns your vocabulary.</li>
+    <li><b>Units.</b> Boxes, packs and pieces need clear conversions on the product, or the agent will guess.</li>
+  </ul>
+
+  <h2>Data and privacy</h2>
+  <p>The agent needs a language model to read messages. It can use a hosted model such as Anthropic Claude or Google Gemini, or a model running on your own hardware. Only the message and the data needed for matching are sent, and the decision of which provider to use is yours.</p>
+
+  <h2>What it takes</h2>
+  <p>You need Odoo with clean products and contacts, a WhatsApp Business account or a mailbox for orders, and two or three weeks of real messages to tune the matching. If you don't have Odoo yet, we set up sales and inventory first and add the agent in the next phase.</p>
+  <p>More on how we build these: <a href="/services/ai-agents-for-odoo">AI agents for Odoo</a>.</p>
+</Article>

@@ -1,0 +1,34 @@
+---
+import Article from "../../layouts/Article.astro";
+import { guides } from "../../data/guides";
+const g = guides[1];
+---
+<Article title={g.title} metaTitle="Label Printers and Scales in Odoo Community Without an IoT Box" description={g.description} slug={g.slug} date="2026-11-04">
+  <p>In Odoo Enterprise, hardware such as label printers, scales and payment terminals connects through the IoT Box. Odoo Community doesn't include it. You can still print a shipping label from a sales order and read a weight into a delivery; you just have to choose how. Here are the four approaches we use, from simplest to most capable.</p>
+
+  <h2>1. PDF in the browser</h2>
+  <p>Odoo renders the label as a PDF and the user prints it through the browser's print dialog. It works on day one with any printer. It is also slow: every label means a dialog, the right printer, the right paper size and no scaling. Fine for a few labels a day, painful for a packing table.</p>
+
+  <h2>2. Raw ZPL to a network printer</h2>
+  <p>Most industrial label printers, Zebra being the common one, accept ZPL commands over the network, usually on TCP port 9100. A small Odoo module can generate ZPL and send it straight to the printer's IP address. It's fast and needs no extra software. The catch is that the Odoo server must reach the printer. That's easy when Odoo runs in the same building, and hard when Odoo is in the cloud and the printer sits behind the warehouse router.</p>
+
+  <h2>3. A print server on site</h2>
+  <p>A local machine running CUPS or Windows print sharing receives jobs and passes them to the printers. You then need a secure way for cloud Odoo to reach that machine: a VPN, a tunnel or a polling queue. It works, but you are now maintaining a small network project next to your ERP.</p>
+
+  <h2>4. A local device agent</h2>
+  <p>A small agent runs on a computer in the warehouse: a Windows PC, a Raspberry Pi or a Linux box. It finds the printers, scanners and scales it can reach and opens an outgoing connection to the cloud, so nobody has to open ports on the router. Odoo sends "print this label on printer A" or "read scale B", and the agent does it locally.</p>
+  <p>We built this approach as our own product, <a href="https://mcpdevices.com" rel="noopener">MCP Devices</a>. The same agent also exposes the devices to AI agents over MCP, so an assistant can print or weigh with the same permissions and audit log as Odoo.</p>
+
+  <h2>Scales</h2>
+  <p>Shipping scales usually connect by USB or serial (RS-232) and send a weight string when asked or continuously. Odoo in a browser can't read a serial port directly in a reliable, cross-platform way, so in practice the weight goes through a local program: either an agent like the one above or a desktop helper. The delivery then gets the weight by button press or automatically when the reading is stable.</p>
+
+  <h2>Which one to pick</h2>
+  <table>
+    <thead><tr><th>Situation</th><th>Approach</th></tr></thead>
+    <tbody>
+      <tr><td>A few labels a day</td><td>PDF in the browser</td></tr>
+      <tr><td>Odoo and printers in the same building</td><td>Raw ZPL to the printer</td></tr>
+      <tr><td>Cloud Odoo, one or more warehouses, printers and scales</td><td>Local device agent</td></tr>
+    </tbody>
+  </table>
+</Article>

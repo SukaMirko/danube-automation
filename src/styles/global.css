@@ -365,3 +365,33 @@ p { margin: 0 0 1em; }
   .o-lines .hide-sm { display: none; }
   .o-btns .o-btn:not(.primary) { display: none; }
 }
+
+/* MCP Devices block */
+.devices { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: clamp(1.4rem, 4vw, 3rem); }
+.devices .ticks { margin: 1rem 0 1.5rem; }
+.devices-card { background: #1f1720; color: #e5e7eb; border-radius: 12px; padding: 1.2rem; font-size: .9rem; box-shadow: 0 24px 48px -28px rgba(17,24,39,.6); }
+.dc-title { font-weight: 700; color: #fff; margin-bottom: .8rem; }
+.devices-card ul { list-style: none; margin: 0; padding: 0; }
+.devices-card li { display: flex; align-items: center; gap: .6rem; padding: .55rem 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+.devices-card em { margin-left: auto; font-style: normal; font-family: var(--mono); font-size: .78rem; color: #9ca3af; }
+.dc-dot { width: 8px; height: 8px; border-radius: 50%; background: #6b7280; flex: none; }
+.dc-dot.on { background: #3fc1c6; }
+.dc-foot { margin: .8rem 0 0; font-size: .78rem; color: #9ca3af; }
+.gaps a { color: var(--river); }
+@media (max-width: 960px) { .devices { grid-template-columns: 1fr; } }
+/* Guides */
+.guide-list { display: grid; gap: 1rem; }
+.guide-card { display: block; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem 1.5rem; text-decoration: none; color: var(--ink); }
+.guide-card:hover { border-color: var(--river); color: var(--ink); }
+.guide-card h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -.02em; margin-bottom: .3rem; }
+.guide-card p { color: var(--muted); margin: 0; }
+.article { max-width: 46rem; }
+.article h1 { font-size: clamp(2rem, 4.2vw, 3rem); }
+.article h2 { font-size: 1.55rem; margin-top: 2.2rem; }
+.article li { margin: .35rem 0; }
+.article table { width: 100%; border-collapse: collapse; font-size: .95rem; margin: 1rem 0 1.5rem; }
+.article th, .article td { text-align: left; padding: .55rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+.article th { background: var(--soft); }
+.article code { font-family: var(--mono); font-size: .88em; background: var(--soft); padding: .1em .35em; border-radius: 4px; }
+.article .byline { color: var(--muted); font-size: .92rem; }
+.article-cta { background: var(--river-soft); border-radius: var(--radius); padding: 1.5rem; margin-top: 2.5rem; }

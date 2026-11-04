@@ -1,0 +1,41 @@
+---
+import Article from "../../layouts/Article.astro";
+import { guides } from "../../data/guides";
+const g = guides[0];
+---
+<Article title={g.title} metaTitle="Odoo Community vs Enterprise (2026): What You Lose and How to Replace It" description={g.description} slug={g.slug} date="2026-11-04">
+  <p>Odoo comes in two editions. Community is open source under the LGPL-3 license and has no license fee. Enterprise adds apps and features and is paid per user, per month, which you can check on Odoo's own pricing page. Both run on the same core, so a company can start on Community and move to Enterprise later.</p>
+  <p>The question we get on every first call is the same: what exactly do we give up with Community, and what does it cost to fill the gap?</p>
+
+  <h2>What Community already includes</h2>
+  <p>For a typical distributor or small manufacturer, the core is there: CRM, Sales, Purchase, Inventory, Manufacturing with bills of materials and work orders, Invoicing, Website and eCommerce, Point of Sale, Project, Employees and Time Off. Many companies run their whole order-to-invoice flow on these.</p>
+
+  <h2>Enterprise-only features, and the usual replacement</h2>
+  <table>
+    <thead><tr><th>Enterprise feature</th><th>Community replacement</th></tr></thead>
+    <tbody>
+      <tr><td>Full accounting (reports, bank reconciliation widgets, budgets)</td><td>OCA accounting repositories, for example <code>account_financial_report</code> and <code>mis_builder</code> for reports</td></tr>
+      <tr><td>Studio (no-code customisation)</td><td>Custom modules in Git. More work up front, but versioned and testable</td></tr>
+      <tr><td>Barcode app</td><td>OCA <code>stock_barcodes</code>, or a custom warehouse kiosk</td></tr>
+      <tr><td>IoT Box for printers and scales</td><td>Direct network printing, or a local device agent such as <a href="https://mcpdevices.com" rel="noopener">MCP Devices</a></td></tr>
+      <tr><td>Helpdesk</td><td>OCA <code>helpdesk_mgmt</code></td></tr>
+      <tr><td>Subscriptions</td><td>OCA <code>contract</code></td></tr>
+      <tr><td>Documents</td><td>OCA <code>dms</code></td></tr>
+      <tr><td>Field Service</td><td>OCA <code>fieldservice</code></td></tr>
+      <tr><td>Odoo.sh hosting</td><td>Your own server with backups and a staging copy</td></tr>
+    </tbody>
+  </table>
+  <p>The OCA (Odoo Community Association) maintains hundreds of modules on GitHub. Coverage differs by Odoo version, so before you plan around a module, check that it exists and is maintained for your version.</p>
+
+  <h2>When Enterprise is cheaper</h2>
+  <p>Community saves the license fee, but replacing an Enterprise app costs development and maintenance time. Enterprise usually wins when:</p>
+  <ul>
+    <li>You need full accounting in a country where Odoo's Enterprise localisation is mature and an accountant will work in Odoo every day.</li>
+    <li>You have few users, so the license fee is small next to the custom work.</li>
+    <li>You want Odoo S.A. to handle upgrades on Odoo.sh.</li>
+  </ul>
+  <p>Community usually wins when you have many users who only need sales, stock or the shop floor, when your process needs custom modules anyway, or when you want full control of hosting and code.</p>
+
+  <h2>How we decide with a client</h2>
+  <p>We list the apps you need, mark which are Enterprise-only, and price the replacement work. Then we compare that with three years of Enterprise licenses for your user count. If Enterprise comes out cheaper, we recommend it.</p>
+</Article>

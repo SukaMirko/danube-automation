@@ -1,0 +1,18 @@
+---
+import Base from "../../layouts/Base.astro";
+import { guides } from "../../data/guides";
+---
+<Base title="Odoo Guides: Community, Integrations and AI Agents" description="Practical guides on Odoo Community, hardware integrations and AI agents, written by the team that builds them.">
+  <section class="page-hero page-hero-short">
+    <div class="wrap">
+      <p class="kicker">Guides</p>
+      <h1>Notes from Odoo projects</h1>
+      <p class="lead">What we learn building Odoo Community systems, integrations and agents, written down so you can use it with or without us.</p>
+    </div>
+  </section>
+  <section class="wrap section guide-list">
+    {guides.map((g) => (
+      <a class="guide-card" href={`/guides/${g.slug}`}><h3>{g.title}</h3><p>{g.description}</p></a>
+    ))}
+  </section>
+</Base>

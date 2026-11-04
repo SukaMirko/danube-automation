@@ -63,7 +63,7 @@ export const services: Service[] = [
       { title: "Couriers", text: "Shipping labels and tracking numbers created from the sales order. We have built carrier integrations from scratch and can do the same for yours." },
       { title: "Banks and payments", text: "Bank statement import and matching to invoices, QR codes for payment on invoices." },
       { title: "E-invoicing and fiscal devices", text: "We built e-invoicing and fiscal receipt connections for Serbia's national systems, so national e-invoicing networks in other countries are familiar ground." },
-      { title: "Printers, scales and kiosks", text: "Labels printed where the box is packed, weights read from the scale, touch screens on the shop floor." },
+      { title: "Printers, scales and kiosks", text: "Labels printed where the box is packed and weights read from the scale through MCP Devices, our own hardware connector, plus touch screens on the shop floor." },
       { title: "Any REST or SOAP API", text: "Your CRM, your supplier's portal, your BI tool. With retries, error logs and alerts when something fails." },
     ],
     examples: [
