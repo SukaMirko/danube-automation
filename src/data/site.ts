@@ -1,7 +1,7 @@
 export const site = {
   name: "Danube Automation",
   url: "https://danubeautomation.com",
-  email: "mirko@danubeautomation.com",
+  email: "hello@danubeautomation.com",
   phone: "+381607452220",
   phoneDisplay: "+381 60 745 2220",
   whatsapp: "https://wa.me/381607452220",

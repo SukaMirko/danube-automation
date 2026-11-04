@@ -18,5 +18,5 @@
 - [WhatsApp orders to Odoo sales orders with an AI agent](https://danubeautomation.com/guides/whatsapp-orders-to-odoo-sales-orders)
 
 ## Contact
-- Email: mirko@danubeautomation.com
+- Email: hello@danubeautomation.com
 - Book a call: https://danubeautomation.com/contact
