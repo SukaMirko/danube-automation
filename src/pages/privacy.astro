@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base title="Privacy Policy" description="How Danube Automation handles the data you send through this website.">
+  <section class="wrap section prose">
+    <h1>Privacy policy</h1>
+    <p>This website is operated by {site.legal}, {site.address} (VAT/Tax ID {site.vat}). Danube Automation is our brand for international clients.</p>
+    <h2>What we collect</h2>
+    <p>When you send the contact form we receive your name, company, email, phone number if you give it, your message, the page you sent it from and, if present, the advertising campaign parameters in the page address. We use this only to reply to you and to prepare an offer.</p>
+    <p>The site sets no advertising or analytics cookies. Our hosting provider keeps standard server logs (IP address, time, requested page) for security and debugging.</p>
+    <h2>Where it is stored</h2>
+    <p>Form submissions are stored on our server at Railway (EU region) and forwarded to our business mailbox. We do not sell or share them with third parties for marketing.</p>
+    <h2>How long</h2>
+    <p>We keep inquiries for up to 24 months, or longer if they become a contract, as accounting law requires.</p>
+    <h2>Your rights</h2>
+    <p>You can ask us to show, correct or delete your data at any time by writing to <a href={`mailto:${site.email}`}>{site.email}</a>. Under the GDPR and Serbia's Law on Personal Data Protection you can also complain to your data protection authority.</p>
+    <p class="muted">Last updated: November 2026</p>
+  </section>
+</Base>

@@ -1,0 +1,38 @@
+---
+// Hero visual: a WhatsApp order turning into a draft Odoo sales order.
+---
+<div class="flow" aria-label="Example: a WhatsApp message becomes a draft sales order in Odoo">
+  <div class="flow-card msg">
+    <p class="flow-label"><span class="dot dot-wa"></span>WhatsApp · Kessler Tiles · 07:42</p>
+    <p class="bubble">Morning! Same as last time but 40 boxes of the 2mm clips, 15 wedge packs. Can it go out Thursday?</p>
+  </div>
+
+  <svg class="flow-river" viewBox="0 0 60 120" aria-hidden="true">
+    <path d="M30 0 C 6 30, 54 50, 30 80 S 30 110, 30 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 7" />
+  </svg>
+
+  <div class="flow-card agent">
+    <p class="flow-label"><span class="dot dot-ai"></span>Agent</p>
+    <ul class="checks">
+      <li>Customer matched: <b>Kessler Tiles GmbH</b></li>
+      <li>“Last time” = order S00412, 3 lines</li>
+      <li>Delivery date: Thursday, 6 Nov</li>
+    </ul>
+  </div>
+
+  <svg class="flow-river" viewBox="0 0 60 120" aria-hidden="true">
+    <path d="M30 0 C 54 30, 6 50, 30 80 S 30 110, 30 120" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="5 7" />
+  </svg>
+
+  <div class="flow-card order">
+    <p class="flow-label"><span class="dot dot-odoo"></span>Odoo · Sales order S00438</p>
+    <table>
+      <tbody>
+        <tr><td>Leveling clips 2 mm</td><td>40 box</td></tr>
+        <tr><td>Wedges, pack of 100</td><td>15 pk</td></tr>
+        <tr><td>Leveling pliers</td><td>1 pc</td></tr>
+      </tbody>
+    </table>
+    <p class="order-foot"><span class="pill">Draft</span> Waiting for your approval</p>
+  </div>
+</div>

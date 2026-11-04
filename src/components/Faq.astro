@@ -1,0 +1,14 @@
+---
+const { items, title = "Questions we get asked" } = Astro.props as { items: { q: string; a: string }[]; title?: string };
+---
+<section class="wrap section faq" id="faq">
+  <h2>{title}</h2>
+  <div class="faq-list">
+    {items.map((item) => (
+      <details>
+        <summary>{item.q}</summary>
+        <p>{item.a}</p>
+      </details>
+    ))}
+  </div>
+</section>

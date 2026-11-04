@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<Base
+  title="Contact: Book an Odoo Scoping Call"
+  description="Book a free 30-minute call about Odoo Community implementation, integrations, custom modules or AI agents. We reply within one working day."
+>
+  <section class="page-hero page-hero-short">
+    <div class="wrap">
+      <p class="kicker">Contact</p>
+      <h1>Book a 30-minute scoping call</h1>
+      <p class="lead">On the call you walk us through one order, from the first message to the paid invoice. Afterwards we send a written scope and a fixed price for phase one, or tell you honestly that Odoo isn't the right fit.</p>
+    </div>
+  </section>
+  <ContactForm title="Tell us about your company" />
+</Base>

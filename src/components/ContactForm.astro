@@ -1,0 +1,89 @@
+---
+import { site } from "../data/site";
+const {
+  title = "Tell us what your team retypes today",
+  intro = "A few sentences are enough. We reply within one working day with questions or a time for a 30-minute call.",
+  id = "contact-form",
+} = Astro.props as { title?: string; intro?: string; id?: string };
+---
+
+<section class="wrap section contact" id="contact">
+  <div class="contact-copy">
+    <p class="kicker">Start here</p>
+    <h2>{title}</h2>
+    <p>{intro}</p>
+    <ul class="contact-direct">
+      <li><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      <li><span>Phone / WhatsApp</span><a href={site.whatsapp} rel="noopener">{site.phoneDisplay}</a></li>
+      <li><span>Hours</span>Mon–Fri, 8:00–17:00 CET</li>
+    </ul>
+  </div>
+  <form class="form" id={id} method="post" action="/api/contact">
+    <div class="form-row">
+      <label>Your name
+        <input name="name" autocomplete="name" required maxlength="120" />
+      </label>
+      <label>Company
+        <input name="company" autocomplete="organization" maxlength="160" />
+      </label>
+    </div>
+    <div class="form-row">
+      <label>Work email
+        <input name="email" type="email" autocomplete="email" required maxlength="160" />
+      </label>
+      <label>Phone <small>(optional)</small>
+        <input name="phone" type="tel" autocomplete="tel" maxlength="40" />
+      </label>
+    </div>
+    <label>What should Odoo do for you?
+      <textarea name="message" required minlength="5" maxlength="4000" placeholder="For example: we take orders on WhatsApp and email, keep stock in Excel, and invoice from QuickBooks. 12 people."></textarea>
+    </label>
+    <div class="hp" aria-hidden="true">
+      <label>Leave empty <input name="website" tabindex="-1" autocomplete="off" /></label>
+    </div>
+    <button class="btn" type="submit">Send and request a call</button>
+    <p class="status" role="status" data-status></p>
+  </form>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("form[action='/api/contact']").forEach((form) => {
+    const status = form.querySelector<HTMLElement>("[data-status]");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!status) return;
+      const button = form.querySelector("button");
+      const data = Object.fromEntries(new FormData(form).entries()) as Record<string, string>;
+      const params = new URLSearchParams(location.search);
+      const source: Record<string, string> = { page: location.pathname, referrer: document.referrer };
+      ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"].forEach((k) => {
+        const v = params.get(k);
+        if (v) source[k] = v;
+      });
+      status.textContent = "Sending…";
+      status.dataset.state = "";
+      button?.setAttribute("disabled", "");
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "content-type": "application/json", accept: "application/json" },
+          body: JSON.stringify({ ...data, source }),
+        });
+        const body = await res.json().catch(() => ({}));
+        if (res.ok && body.ok) {
+          form.reset();
+          status.dataset.state = "ok";
+          status.textContent = "Thank you. Your message arrived, and we will reply within one working day.";
+        } else {
+          status.dataset.state = "error";
+          status.textContent = body.error || "The message was not sent. Please email us directly.";
+        }
+      } catch {
+        status.dataset.state = "error";
+        status.textContent = "The message was not sent. Please email us directly.";
+      } finally {
+        button?.removeAttribute("disabled");
+      }
+    });
+  });
+</script>

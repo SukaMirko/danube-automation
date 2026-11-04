@@ -1,0 +1,181 @@
+---
+import Base from "../layouts/Base.astro";
+import FlowDemo from "../components/FlowDemo.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Faq from "../components/Faq.astro";
+import { services } from "../data/services";
+import { site } from "../data/site";
+
+const faq = [
+  { q: "What does an Odoo implementation cost?", a: "After a free 30-minute call we send a written scope and a fixed price for the first phase. We keep that phase small: one process, working on your data, in a few weeks. You decide on phase two once phase one is live." },
+  { q: "Why Odoo Community instead of Enterprise?", a: "Community has no per-user license fee and you can change its source code. Some apps are Enterprise-only: Studio, full accounting reports, Barcode, IoT. We replace them with Odoo Community Association modules or our own. When Enterprise would cost you less over three years, we tell you." },
+  { q: "Where will our Odoo run?", a: "On a cloud server in your name (Hetzner, AWS, DigitalOcean or similar) or on your own hardware. We set up backups, a staging copy for testing and monitoring. Odoo.sh, Odoo's own hosting, is available only with Enterprise." },
+  { q: "Who owns the code you write?", a: "You do. Custom modules are delivered under LGPL-3 in your own Git repository with documentation, so any Odoo developer can take over." },
+  { q: "We're in the US. How does the time difference work?", a: "We work 8:00–17:00 Central European Time, which overlaps with the US East Coast morning. Calls can be scheduled in your morning; most work happens while you sleep and is ready to test when you start." },
+  { q: "How do contracts and invoices work?", a: "You sign with ATAR Agtek d.o.o., a registered company in Novi Sad, Serbia, and we invoice in EUR or USD. NDAs are standard." },
+  { q: "Is our data sent to AI providers?", a: "Only when you approve it, and only the data a task needs. Agents can use Anthropic Claude, Google Gemini or a model running on your own server." },
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+
+const modules = [
+  { title: "Production kiosk", text: "Workers report finished quantities on a tablet next to the machine." },
+  { title: "Attendance with face recognition", text: "Clock-in at the entrance, no cards or PINs." },
+  { title: "Labels and printers", text: "Shipping and product labels printed where the box is packed." },
+  { title: "Courier shipments", text: "Label and tracking number created from the sales order in one tap." },
+  { title: "Shopify sync", text: "Orders, products and stock moving between Shopify and Odoo." },
+  { title: "B2B portal", text: "Wholesale customers see their own prices and order without calling." },
+  { title: "Bank statement import", text: "Statements imported and matched to open invoices." },
+  { title: "Rule-based invoice notes", text: "Legal clauses and export notes added to invoices automatically." },
+  { title: "Dashboard builder", text: "Private or public dashboards built from live Odoo data." },
+  { title: "Route planner", text: "Customer visits scheduled for field sales reps." },
+  { title: "Flipbook catalogue", text: "Product catalogue that pages like a book, generated from Odoo." },
+  { title: "AI agent over MCP", text: "Ask Odoo questions in plain language, with the asker's access rights." },
+];
+---
+
+<Base
+  title="Odoo Community Implementation, Integrations and AI Agents | Danube Automation"
+  description="We implement Odoo Community, connect it to your webshop, couriers, bank and machines, write custom modules and add AI agents that turn WhatsApp and email orders into drafts in Odoo."
+  jsonLd={[faqLd]}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Odoo Community · Integrations · AI agents</p>
+        <h1>Odoo without per-user license fees, and with the parts Community is missing.</h1>
+        <p class="lead">We implement Odoo Community, connect it to your webshop, couriers, bank and machines, write the modules your process needs, and add AI agents that turn WhatsApp messages and emails into draft orders.</p>
+        <div class="hero-actions">
+          <a class="btn" href="/contact">Book a 30-minute scoping call</a>
+          <a class="btn btn-ghost" href="#agents">See an agent at work</a>
+        </div>
+        <p class="hero-meta">Fixed-price phases · Central European Time · You own the code</p>
+      </div>
+      <FlowDemo />
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Key facts">
+    <div class="wrap facts-grid">
+      <div><b>Odoo 19</b><span>Community edition, and upgrades from older versions</span></div>
+      <div><b>20+ modules</b><span>written and maintained by our own team</span></div>
+      <div><b>CET</b><span>Same working day as Europe, overlaps US East mornings</span></div>
+      <div><b>LGPL-3</b><span>Your modules, in your Git repository</span></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="services">
+    <div class="section-head">
+      <p class="kicker">What we do</p>
+      <h2>Four kinds of work, usually in this order</h2>
+    </div>
+    <div class="service-grid">
+      {services.map((s, i) => (
+        <a class="service-card" href={`/services/${s.slug}`}>
+          <span class="num">0{i + 1}</span>
+          <h3>{s.title}</h3>
+          <p>{s.card}</p>
+          <span class="more">Read more →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="band" id="agents">
+    <div class="wrap section split">
+      <div>
+        <p class="kicker">AI agents</p>
+        <h2>Orders arrive in WhatsApp. They should land in Odoo.</h2>
+        <p>Somebody in your office reads every message, finds the customer, looks up product codes and types the order. An agent does the reading and the lookup against your real Odoo data, then leaves a draft for that same person to check.</p>
+        <p>Nothing is confirmed without a human. The draft shows the original message next to the order, with anything uncertain highlighted.</p>
+        <a class="link-arrow" href="/services/ai-agents-for-odoo">How our Odoo agents work →</a>
+      </div>
+      <ol class="steps">
+        <li><b>A message arrives</b><span>WhatsApp, Telegram, Viber, email or a voice note from a rep in the car.</span></li>
+        <li><b>The agent reads it against Odoo</b><span>Customer, products, “same as last time”, delivery date, price list.</span></li>
+        <li><b>A draft order waits for you</b><span>One click to confirm, or fix a line and confirm. Corrections teach the matching.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap section" id="community">
+    <div class="section-head">
+      <p class="kicker">Community vs. Enterprise</p>
+      <h2>What Community gives you, and how we fill the gaps</h2>
+      <p class="section-lead">Odoo Community is the open-source edition of Odoo. It has no per-user fee. A few apps exist only in the paid Enterprise edition, and that is where most of our module work happens.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-col">
+        <h3>Included in Community</h3>
+        <ul class="ticks">
+          <li>CRM, Sales and Purchase</li>
+          <li>Inventory and Manufacturing</li>
+          <li>Invoicing</li>
+          <li>Website, eCommerce and Point of Sale</li>
+          <li>Project, Employees and Time Off</li>
+        </ul>
+      </div>
+      <div class="compare-col">
+        <h3>Enterprise-only, and our answer</h3>
+        <ul class="gaps">
+          <li><span>Full accounting reports</span><span>OCA financial reports</span></li>
+          <li><span>Barcode app</span><span>Kiosk and scanner modules</span></li>
+          <li><span>Studio</span><span>Custom modules in Git</span></li>
+          <li><span>IoT Box</span><span>Direct printer and scale connections</span></li>
+          <li><span>Odoo.sh hosting</span><span>Your own server, with backups</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">If Enterprise would cost you less over three years than the custom work, we will say so before you sign.</p>
+  </section>
+
+  <section class="wrap section" id="modules">
+    <div class="section-head">
+      <p class="kicker">Modules we have built</p>
+      <h2>From the shop floor to the sales rep's phone</h2>
+      <p class="section-lead">We started on the factory side: our sister company builds AI camera hardware for farm machinery. So our Odoo work reaches places most ERP partners avoid, like tablets on machines, label printers and attendance cameras.</p>
+    </div>
+    <ul class="module-grid">
+      {modules.map((m) => (
+        <li><b>{m.title}</b><span>{m.text}</span></li>
+      ))}
+    </ul>
+    <a class="link-arrow" href="/services/custom-odoo-modules">Custom module development →</a>
+  </section>
+
+  <section class="band band-dark">
+    <div class="wrap section">
+      <div class="section-head">
+        <p class="kicker">How we work</p>
+        <h2>Small first phase, fixed price, your data</h2>
+      </div>
+      <ol class="process">
+        <li><span class="num">1</span><b>30-minute call</b><p>You walk us through one order, from the first message to the paid invoice. Free.</p></li>
+        <li><span class="num">2</span><b>Written scope and price</b><p>The smallest phase that removes the most retyping, at a fixed price.</p></li>
+        <li><span class="num">3</span><b>Build, migrate, train</b><p>You test on a copy with your own data before anyone goes live.</p></li>
+        <li><span class="num">4</span><b>Support, if you want it</b><p>Ticket queue, agreed response times, monthly hours. Or your team takes over.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap section split" id="partners">
+    <div>
+      <p class="kicker">For Odoo partners</p>
+      <h2>More projects than developers?</h2>
+      <p>We build modules, integrations and upgrades under your brand. We work in your repository, follow your coding standards, sign an NDA and never contact your client unless you ask us to.</p>
+      <a class="link-arrow" href="/for-odoo-partners">White-label Odoo development →</a>
+    </div>
+    <div class="about-card">
+      <p class="kicker">Who you'll work with</p>
+      <p><b>{site.person}</b> leads every project personally. Danube Automation is the international brand of {site.legal}, an engineering company in Novi Sad, Serbia, that builds ERP systems, integrations and AI hardware.</p>
+      <p><a href={site.linkedin} rel="noopener">Mirko on LinkedIn →</a></p>
+    </div>
+  </section>
+
+  <Faq items={faq} />
+  <ContactForm />
+</Base>

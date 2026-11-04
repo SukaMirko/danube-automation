@@ -1,0 +1,92 @@
+---
+import Base from "../../layouts/Base.astro";
+import ContactForm from "../../components/ContactForm.astro";
+import Faq from "../../components/Faq.astro";
+import { services, type Service } from "../../data/services";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props as { service: Service };
+const others = services.filter((s) => s.slug !== service.slug);
+const url = `${site.url}/services/${service.slug}`;
+const ld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    serviceType: service.title,
+    description: service.metaDescription,
+    url,
+    provider: { "@type": "ProfessionalService", name: site.name, url: site.url },
+    areaServed: ["Europe", "United States", "United Kingdom"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: service.title, item: url },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+];
+---
+
+<Base title={service.metaTitle} description={service.metaDescription} jsonLd={ld}>
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <span>{service.title}</span></nav>
+      <p class="kicker">{service.kicker}</p>
+      <h1>{service.h1}</h1>
+      <p class="lead">{service.intro}</p>
+      <div class="hero-actions">
+        <a class="btn" href="#contact">Book a 30-minute scoping call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head"><h2>What's included</h2></div>
+    <div class="include-grid">
+      {service.includes.map((item) => (
+        <div class="include"><h3>{item.title}</h3><p>{item.text}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap section split">
+      <div>
+        <p class="kicker">Typical projects</p>
+        <h2>The kind of work this looks like</h2>
+      </div>
+      <ul class="ticks ticks-lg">
+        {service.examples.map((e) => <li>{e}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <Faq items={service.faq} />
+
+  <section class="wrap section">
+    <div class="section-head"><p class="kicker">Also</p><h2>Related services</h2></div>
+    <div class="service-grid service-grid-3">
+      {others.map((s) => (
+        <a class="service-card" href={`/services/${s.slug}`}>
+          <h3>{s.title}</h3>
+          <p>{s.card}</p>
+          <span class="more">Read more →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ContactForm />
+</Base>

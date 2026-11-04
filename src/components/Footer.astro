@@ -1,0 +1,35 @@
+---
+import Logo from "./Logo.astro";
+import { site, nav } from "../data/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand brand-light" href="/"><Logo /><span>Danube <b>Automation</b></span></a>
+      <p class="footer-note">Odoo Community, integrations and AI agents. Built in Novi Sad, Serbia, on Central European Time.</p>
+    </div>
+    <div>
+      <p class="footer-h">Services</p>
+      <ul>{nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+    </div>
+    <div>
+      <p class="footer-h">Contact</p>
+      <ul>
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><a href={`tel:${site.phone}`}>{site.phoneDisplay}</a></li>
+        <li><a href={site.whatsapp} rel="noopener">WhatsApp</a></li>
+        <li><a href={site.linkedin} rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-h">Company</p>
+      <p class="footer-legal">Danube Automation is a brand of {site.legal}<br />{site.address}<br />VAT/Tax ID {site.vat} · Reg. no. {site.regNo}</p>
+      <p><a href="/privacy">Privacy policy</a></p>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© {year} {site.legal}. Odoo is a trademark of Odoo S.A. Danube Automation is independent and not affiliated with or endorsed by Odoo S.A.</p>
+  </div>
+</footer>
