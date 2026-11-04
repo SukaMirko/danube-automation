@@ -32,5 +32,4 @@ export const orgJsonLd = {
   address: { "@type": "PostalAddress", addressLocality: "Novi Sad", addressCountry: "RS" },
   areaServed: ["Europe", "United States", "United Kingdom"],
   knowsAbout: ["Odoo", "Odoo Community", "ERP implementation", "Odoo module development", "AI agents", "System integration"],
-  founder: { "@type": "Person", name: site.person, sameAs: site.linkedin },
 };

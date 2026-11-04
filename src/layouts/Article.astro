@@ -21,7 +21,7 @@ const ld = [
     dateModified: date,
     mainEntityOfPage: url,
     image: `${site.url}/og.png`,
-    author: { "@type": "Person", name: site.person, url: site.linkedin },
+    author: { "@type": "Organization", name: site.name, url: site.url },
     publisher: { "@type": "Organization", name: site.name, logo: { "@type": "ImageObject", url: `${site.url}/favicon.png` } },
   },
   {
@@ -41,7 +41,7 @@ const nice = new Date(date).toLocaleDateString("en-GB", { day: "numeric", month:
   <article class="wrap section article">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/guides">Guides</a></nav>
     <h1>{title}</h1>
-    <p class="byline">{site.person} · {nice}</p>
+    <p class="byline">Danube Automation · {nice}</p>
     <slot />
     <div class="article-cta">
       <h2 style="margin-top:0">Want this in your Odoo?</h2>
