@@ -1,6 +1,6 @@
 # Danube Automation
 
-> Odoo Community implementation, integrations, custom Odoo module development and AI agents for small and mid-sized companies. Team based in Novi Sad, Serbia (Central European Time), working with clients in Europe and the United States. Independent; not affiliated with Odoo S.A.
+> Odoo Community implementation, integrations, custom Odoo module development and AI agents for small and mid-sized companies, on every Odoo version from older releases to the latest. Team based in Novi Sad, Serbia (Central European Time), working with clients in Europe and the United States. Independent; not affiliated with Odoo S.A.
 
 ## Services
 - [Odoo Community implementation](https://danubeautomation.com/services/odoo-community-implementation): phased, fixed-price setup of sales, inventory, purchasing, manufacturing and invoicing, with data migration and training.

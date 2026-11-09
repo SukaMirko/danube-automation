@@ -28,7 +28,7 @@ export const services: Service[] = [
     card: "Sales, inventory, purchasing, manufacturing and invoicing set up around your process, with your data migrated and your team trained.",
     includes: [
       { title: "Process mapping", text: "We follow one order from the first message to the paid invoice and write down every step, every spreadsheet and every person who touches it." },
-      { title: "Configuration", text: "Products, price lists, warehouses, routes, bills of materials, taxes and user rights, set up in Odoo 19 Community." },
+      { title: "Configuration", text: "Products, price lists, warehouses, routes, bills of materials, taxes and user rights, set up in the Odoo version that fits you, from older releases to the latest." },
       { title: "Data migration", text: "Customers, products, open orders and stock levels imported from Excel, QuickBooks, an older Odoo or another ERP, with a check list you sign off." },
       { title: "Hosting", text: "Odoo installed on your own cloud server or on-premise, with daily backups and a staging copy for testing changes." },
       { title: "Training", text: "Short sessions per role, recorded, so a new warehouse worker can learn the same way next year." },
@@ -38,7 +38,7 @@ export const services: Service[] = [
       "Moving a distributor from spreadsheets and email to Odoo Sales, Inventory and Invoicing",
       "Manufacturing with bills of materials, work orders and a tablet kiosk on the shop floor",
       "Taking over an existing Odoo installation that nobody maintains any more",
-      "Upgrading from an older Odoo version to Odoo 19",
+      "Upgrading an older Odoo installation to a current version, custom modules included",
     ],
     faq: [
       { q: "Why Community and not Enterprise?", a: "Community has no per-user license fee, and its source code is yours to change. Some apps are Enterprise-only. We fill those gaps with modules from the Odoo Community Association or our own, and if Enterprise would cost you less overall, we say so before you sign anything." },
